@@ -4,3 +4,4 @@
 //db.createCollection("products")
 //show collections
 //db.products.renameCollection("users")
+// db.createCollection("cars")

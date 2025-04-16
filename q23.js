@@ -1,0 +1,79 @@
+//use mydb-kia
+//db.createCollection("cars")
+db.cars.insertOne({
+    model: "m1"
+});
+db.cars.find()
+db.cars.insertMany([
+    {model:"m2"},
+    {model:"m3"}
+])
+db.cars.updateMany(
+    {},
+    {$set:{price:20000}}
+)
+
+db.cars.updateOne(
+    {model:"m2"},
+    {$inc:{price:5000}}
+)
+
+db.cars.updateMany(
+    {},
+    {$set:{date:Date()}}
+)
+db.cars.updateOne(
+    {model:"m1"},
+    {$set:{variant:["v1","v2","v3"]}}
+)
+db.cars.updateOne(
+    {model:"m1"},
+    {$pull:{variant:"v3"}}   
+)
+db.cars.updateMany(
+    {},
+    {$set:{rating:5}}
+)
+db.cars.updateMany(
+    {},
+    {$rename:{rating:"points"}}
+)
+db.cars.insertOne(
+    [
+        {location:"Delhi",price:200000},
+        {location:"Mumbai",price:100000},
+        {location:"Kolkata",price:300000},
+        {location:"Chennai",price:400000}
+    ]
+)
+db.cars.updateMany(
+    {},
+    {$set:{variant:"v1"}}
+)
+db.cars.updateOne(
+    {model:"m3"},
+    {$set:{variant:["v1","v2"]}}
+)
+db.cars.deleteOne(
+    {model:"m3"},
+    {$pull:{variant:"v2"}}
+)
+db.cars.insertOne(
+    {
+        model:"m3",
+        price:20000,
+        variant:["v1","v2"],
+    }
+)
+db.cars.find(
+    {price:{$lt:25000}}
+)
+db.cars.find({model:'m2'})
+db.cars.find().skip(1) // displays the docs except first one
+db.cars.find().skip(1).limit(1) // displays only second doc
+db.cars.insertMany(
+    [
+    {model:"m4"},
+    {model:"m5"}
+    ]
+)
