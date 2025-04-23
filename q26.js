@@ -32,4 +32,32 @@ db.employees.aggregate([
     {$limit:1}
 ])
 //we can directly add it to project also instead of addfields
-
+db.employees.aggregate([
+    {$match:{department:{$in:["HR","IT"]}}},
+    {$group:{
+        _id:"$department",
+        total:{$sum:"$salary"}}}
+])
+db.employees.aggregate([
+    {$match:{name:{$exists:true}}},
+    {$project:{_id:0,name:1,location:1}},
+    {$unwind:"$location"} // It unwind the locations and print in seperate line each location
+])
+db.employees.aggregate([
+    {$match:{department:{$in:["HR","IT"]}}},
+    {$project:{department:1,salary:1}},
+    {$group:{
+        _id:"$department",
+        total:{$sum:"$salary"}}}
+])
+db.employees.aggregate([
+    {$match:{department:{$in:["HR","IT"]}}},
+    {$project:{
+        department:1,
+        salary:1,
+        salaryInt:{$convert:{input:"$salary",to:"int"}}
+    }},
+    {$group:{
+        _id:"$department",
+        total:{$sum:"$salaryInt"}}}
+])
