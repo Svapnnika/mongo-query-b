@@ -14,17 +14,17 @@ db.posts.insertMany([
     {
         title: "title1",
         desc: "desc1",
-        userId: ObjectId('68086dca6a943416deb5f899')
+        userId: ObjectId('68088a47e145a29b59b5f8a2')
     },
     {
         title: "title2",
         desc: "desc2",
-        userId: ObjectId('68086dca6a943416deb5f899')
+        userId: ObjectId('68088a47e145a29b59b5f8a2')
     },
     {
         title: "title3",
         desc: "desc3",
-        userId: ObjectId('68086dca6a943416deb5f89a')
+        userId: ObjectId('68088a47e145a29b59b5f8a3')
     }
 ]);
 db.users.find()
