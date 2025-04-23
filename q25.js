@@ -1,0 +1,5 @@
+db.employess.find({email:"cathy@gmail.com"}).explain("executionStats")
+db.employees.createIndex({"email":1})
+db.employees.getIndexes()
+db.employees.dropIndex({"email":1})
+db.employees.dropIndexes()
